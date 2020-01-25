@@ -38,6 +38,11 @@ $(document).ready(function() {
         function decrement() {
           time--;
           $("#time").text("00:" + time);
+          if (time === 0) {
+            clearInterval(intervalId);
+            $("#time").text("Time's up!");
+            unanswered++;
+          }
         }
 
     // hides all elements initially
