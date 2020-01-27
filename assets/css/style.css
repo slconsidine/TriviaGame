@@ -68,3 +68,29 @@ body {
     margin: 40px auto 0px auto;
     text-align: center;
 }
+
+@media screen and (max-width: 1100px) {
+    #question {
+        width: 750px;
+        margin-bottom: 20px;
+    }
+
+    .options {
+        width: 750px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .holder {
+        width: 400px;
+    }
+
+    #question {
+        width: 450px;
+    }
+
+    .options {
+        width: 450px;
+    }
+}
