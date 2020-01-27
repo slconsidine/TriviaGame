@@ -21,6 +21,9 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+
     <!-- MY CSS LINKS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -30,31 +33,25 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-
-            <div class="col-sm-6 content">
-                <button id="start">Start Game</button>
-                <button id="newGame">New Game</button>
-                <div id="question"></div>
-                    <button class="option1 right"><span id="option1"></span></button>
-                    <button class="option2 right"><span id="option2"></span></button>
-                    <button class="option3"><span id="option3"></span></button>
-                    <button class="option4"><span id="option4"></span></button>
-                <div id="time"></div>
-
-                <div id="final"></div>
-
-                <div>Correct: <span id="correct"></span></div>
-                <div>Incorrect: <span id="incorrect"></span></div>
-                <div>Unanswered: <span id="unanswered"></span></div>
-
-                <button id="next">Next Question</button>
-            </div>
-
-
-        </div>
+    <button class="btn-block" id="start">START GAME</button>
+    <button class="btn-block" id="newGame">NEW GAME</button>
+    <div id="question"></div>
+    <div class="options">
+        <button class="option1 opt-button"><span id="option1"></span></button>
+        <button class="option2 opt-button"><span id="option2"></span></button>
+        <button class="option3 opt-button"><span id="option3"></span></button>
+        <button class="option4 opt-button"><span id="option4"></span></button>
     </div>
+    <div class="holder">
+        <div class="hide time">Time Remaining: <span id="time"></span></div>
+
+        <div class="hide" id="final"></div>
+
+        <div class="hide">Correct: <span id="correct"></span></div>
+        <div class="hide">Incorrect: <span id="incorrect"></span></div>
+        <div class="hide">Unanswered: <span id="unanswered"></span></div>
+    </div>
+    <button class="btn-block" id="next">Next Question</button>
 
 </body>
 

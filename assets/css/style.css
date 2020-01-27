@@ -4,4 +4,67 @@ body {
     background-position-y: inherit;
     background-size: initial;
     background-origin: initial;
+    font-family: 'Bangers', cursive;
+}
+
+#start, #newGame {
+    background-color: #1B474C;
+    color: #F8F8F8;
+    font-size: 40px;
+    letter-spacing: 2px;
+    border: 5px solid black;
+    width: 600px;
+    margin: 180px auto 0px auto;
+}
+
+#question {
+    color: #f8f8f8;
+    letter-spacing: 2.15px;
+    font-size: 32px;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    margin: 120px auto 0px auto;
+    text-align: center;
+}
+
+.options {
+    width: 1200px;
+    margin: 20px auto 0px auto;
+    text-align: center;
+}
+
+.opt-button {
+    background-color: #1B474C;
+    color: #F8F8F8;
+    font-size: 28px;
+    letter-spacing: 1px;
+    border: 5px solid black;
+    padding: 5px 15px;
+    margin: auto;
+    text-align: center;
+}
+
+.holder {
+    width: 900px;
+    background-color: rgba(0, 0, 0, .5);
+    margin: 40px auto 0px auto;
+    color: #f8f8f8;
+    letter-spacing: 2.15px;
+    font-size: 28px;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+.hide {
+    margin: auto;
+    text-align: center;
+}
+
+#next {
+    background-color: #1B474C;
+    color: #F8F8F8;
+    font-size: 30px;
+    letter-spacing: 2px;
+    border: 5px solid black;
+    width: 200px;
+    margin: 40px auto 0px auto;
+    text-align: center;
 }

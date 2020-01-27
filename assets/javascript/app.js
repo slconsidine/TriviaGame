@@ -205,6 +205,8 @@ $(document).ready(function() {
     function run() {
         $("#start").toggle(false);
         $("#newGame").toggle(false);
+        $("#next").toggle(true);
+        $(".time").toggle(true);
         time = 30;
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
@@ -315,10 +317,12 @@ $(document).ready(function() {
             run ();
         } else {
             $("#question").toggle(false);
-            $("#option1").toggle(false);
-            $("#option2").toggle(false);
-            $("#option3").toggle(false);
-            $("#option4").toggle(false);
+            $(".option1").toggle(false);
+            $(".option2").toggle(false);
+            $(".option3").toggle(false);
+            $(".option4").toggle(false);
+            $("#next").toggle(false)
+            $(".time").toggle(false);
             $("#final").toggle(true);
             $("#final").text("Here's how you did!");
             $("#newGame").toggle(true);
@@ -326,10 +330,10 @@ $(document).ready(function() {
     
     $("#newGame").click(function() {
         $("#question").toggle(true);
-        $("#option1").toggle(true);
-        $("#option2").toggle(true);
-        $("#option3").toggle(true);
-        $("#option4").toggle(true);
+        $(".option1").toggle(true);
+        $(".option2").toggle(true);
+        $(".option3").toggle(true);
+        $(".option4").toggle(true);
         $("#final").toggle(false);
         correct = 0;
         $("#correct").text(correct);
@@ -357,7 +361,9 @@ $(document).ready(function() {
     $("#incorrect").toggle(false);
     $("#unanswered").toggle(false);
     $("#next").toggle(false);
-    $("#newGame").toggle(false);
+    $("#newGame").toggle(false);    
+    $(".hide").toggle(false);
+
 
     // starting the game
     $("#start").click(function() {
@@ -371,6 +377,8 @@ $(document).ready(function() {
         $("#unanswered").toggle(true);
         $("#next").toggle(true);
         $("#newGame").toggle(false);
+        $(".hide").toggle(true);
+
     })
 
 
