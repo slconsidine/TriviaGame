@@ -1,0 +1,7 @@
+body {
+    background-image: url(../images/eagles-background.jpg);
+    background-position: center;
+    background-position-y: inherit;
+    background-size: initial;
+    background-origin: initial;
+}
