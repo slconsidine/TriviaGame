@@ -184,7 +184,6 @@ $(document).ready(function() {
         $("#option2").text(questions[randomPrompt].options[1]);
         $("#option3").text(questions[randomPrompt].options[2]);
         $("#option4").text(questions[randomPrompt].options[3]);
-
         // adds question to the already asked counter
         questionsAsked++;
         // enables all buttons
@@ -192,6 +191,9 @@ $(document).ready(function() {
         $(".option2").attr("disabled", false);
         $(".option3").attr("disabled", false);
         $(".option4").attr("disabled", false);
+        // clears correct answer and hides it on start
+        $("#correct-answer").text("");
+        $("#correct-answer").hide();
 
     }
  
@@ -220,6 +222,7 @@ $(document).ready(function() {
             // timer hits 0 before question gets answered
             if (time === 0) {
             clearInterval(intervalId);
+            $("#next").attr("disabled", false);
             $("#time").text("Time's up!");
             unanswered++;
             $("#unanswered").text(unanswered);
@@ -236,6 +239,16 @@ $(document).ready(function() {
         $(".option4").attr("disabled", true);
     }
 
+    // disables the next question button
+    var nextOff = function() {
+        $("#next").attr("disabled", true);
+    };
+
+    // shows the correct answer
+    var showCorrect = function() {
+        $("#correct-answer").show();
+        $("#correct-answer").text("The correct answer is... " + questions[randomPrompt].answer);
+    };
     
     // user clicks an answer
     $(".option1").click(function() {
@@ -243,6 +256,8 @@ $(document).ready(function() {
         clearInterval(intervalId);
         // disables button
         notEnabled();
+        // enables the next question button
+        $("#next").attr("disabled", false);
         // determines if answer is correct or not
         if (questions[randomPrompt].options[0] === questions[randomPrompt].answer) {
             // adds to correct counter
@@ -253,6 +268,7 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        showCorrect();
     })
     // user clicks an answer    
     $(".option2").click(function() {
@@ -260,6 +276,8 @@ $(document).ready(function() {
         clearInterval(intervalId);
         // disables button
         notEnabled();
+        // enables the next question button
+        $("#next").attr("disabled", false);
         // determines if answer is correct or not
         if (questions[randomPrompt].options[1] === questions[randomPrompt].answer) {
             // adds to correct counter
@@ -270,6 +288,7 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        showCorrect();
     })
     // user clicks an answer    
     $(".option3").click(function() {
@@ -277,6 +296,8 @@ $(document).ready(function() {
         clearInterval(intervalId);
         // disables button
         notEnabled();
+        // enables the next question button
+        $("#next").attr("disabled", false);
         // determines if answer is correct or not
         if (questions[randomPrompt].options[2] === questions[randomPrompt].answer) {
             // adds to correct counter
@@ -287,6 +308,7 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        showCorrect();
     })
     // user clicks an answer    
     $(".option4").click(function() {
@@ -294,6 +316,8 @@ $(document).ready(function() {
         clearInterval(intervalId);
         // disables button
         notEnabled();
+        // enables the next question button
+        $("#next").attr("disabled", false);
         // determines if answer is correct or not
         if (questions[randomPrompt].options[3] === questions[randomPrompt].answer) {
             // adds to correct counter
@@ -304,8 +328,10 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        showCorrect();
     })
 
+    // user clicks the next question button
     $("#next").click(function() {
         if (questionsAsked < questionsTotal) {
             randomPrompt = Math.floor(Math.random() * questions.length);
@@ -315,7 +341,9 @@ $(document).ready(function() {
             selected.push(randomPrompt);
             setUp ();
             run ();
+            nextOff();
         } else {
+            $("#correct-answer").toggle(false);
             $("#question").toggle(false);
             $(".option1").toggle(false);
             $(".option2").toggle(false);
@@ -327,6 +355,7 @@ $(document).ready(function() {
             $("#final").text("Here's how you did!");
             $("#newGame").toggle(true);
         }
+    });
     
     $("#newGame").click(function() {
         $("#question").toggle(true);
@@ -349,7 +378,7 @@ $(document).ready(function() {
         run();
     });
 
-    })
+
 
     // hides all elements initially
     $("#question").toggle(false);
@@ -378,8 +407,9 @@ $(document).ready(function() {
         $("#next").toggle(true);
         $("#newGame").toggle(false);
         $(".hide").toggle(true);
+    });
 
-    })
+
 
 
 
