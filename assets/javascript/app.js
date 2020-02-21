@@ -196,6 +196,12 @@ $(document).ready(function() {
         $("#correct-answer").hide();
 
     }
+
+    // shows the correct answer
+    var showCorrect = function() {
+        $("#correct-answer").show();
+        $("#correct-answer").text("The correct answer is... " + questions[randomPrompt].answer);
+    };
  
     //timer setup
     var intervalId;
@@ -226,6 +232,7 @@ $(document).ready(function() {
             $("#time").text("Time's up!");
             unanswered++;
             $("#unanswered").text(unanswered);
+            showCorrect();
             }
         }
     // questions/options are populated
@@ -242,12 +249,6 @@ $(document).ready(function() {
     // disables the next question button
     var nextOff = function() {
         $("#next").attr("disabled", true);
-    };
-
-    // shows the correct answer
-    var showCorrect = function() {
-        $("#correct-answer").show();
-        $("#correct-answer").text("The correct answer is... " + questions[randomPrompt].answer);
     };
     
     // user clicks an answer
