@@ -165,11 +165,10 @@ $(document).ready(function() {
     selected.push(randomPrompt);
     console.log(questions[randomPrompt].prompt)
 
+    // counter setup
     var correct;
     var incorrect;
     var unanswered;
-
-    // counter setup
     correct = 0;
         $("#correct").text(correct);
     incorrect = 0;
@@ -194,8 +193,7 @@ $(document).ready(function() {
         // clears correct answer and hides it on start
         $("#correct-answer").text("");
         $("#correct-answer").hide();
-
-    }
+    };
 
     // shows the correct answer
     var showCorrect = function() {
@@ -218,13 +216,13 @@ $(document).ready(function() {
         time = 30;
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
-        }
+        };
         function decrement() {
             time--;
             $("#time").text("00:" + time);
             if (time < 10) {
                 $("#time").text("00:0" + time);
-            }
+            };
             // timer hits 0 before question gets answered
             if (time === 0) {
             clearInterval(intervalId);
@@ -233,8 +231,9 @@ $(document).ready(function() {
             unanswered++;
             $("#unanswered").text(unanswered);
             showCorrect();
-            }
-        }
+            };
+        };
+
     // questions/options are populated
     setUp();
 
@@ -269,8 +268,10 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        // displays the correct answer
         showCorrect();
-    })
+    });
+
     // user clicks an answer    
     $(".option2").click(function() {
         // stops timer
@@ -289,8 +290,10 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        // displays the correct answer
         showCorrect();
-    })
+    });
+
     // user clicks an answer    
     $(".option3").click(function() {
         // stops timer
@@ -309,8 +312,10 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        // displays the correct answer
         showCorrect();
-    })
+    });
+
     // user clicks an answer    
     $(".option4").click(function() {
         // stops timer
@@ -329,11 +334,13 @@ $(document).ready(function() {
             incorrect++;
             $("#incorrect").text(incorrect);
         }
+        // displays the correct answer
         showCorrect();
-    })
+    });
 
     // user clicks the next question button
     $("#next").click(function() {
+        // generates a new question if the total has not been reached
         if (questionsAsked < questionsTotal) {
             randomPrompt = Math.floor(Math.random() * questions.length);
             while (selected.includes(randomPrompt)) {
@@ -343,6 +350,7 @@ $(document).ready(function() {
             setUp ();
             run ();
             nextOff();
+        // when total questions to ask has been reached it ends the game and shows the results
         } else {
             $("#correct-answer").toggle(false);
             $("#question").toggle(false);
@@ -358,6 +366,7 @@ $(document).ready(function() {
         }
     });
     
+    // new game is selected and all things are reset
     $("#newGame").click(function() {
         $("#question").toggle(true);
         $(".option1").toggle(true);
@@ -379,8 +388,6 @@ $(document).ready(function() {
         run();
     });
 
-
-
     // hides all elements initially
     $("#question").toggle(false);
     $(".option1").toggle(false);
@@ -393,7 +400,6 @@ $(document).ready(function() {
     $("#next").toggle(false);
     $("#newGame").toggle(false);    
     $(".hide").toggle(false);
-
 
     // starting the game
     $("#start").click(function() {
@@ -409,32 +415,5 @@ $(document).ready(function() {
         $("#newGame").toggle(false);
         $(".hide").toggle(true);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 
-// PSEUDOCODE
-// 1. Generate a question and begin timer
-// 2. Generate answers to the question and notate which is correct
-// 3. User clicks an answer before time is up
-//      a. log whether this answer is correct or incorrect
-// 4. Time runs out
-//      a. log a 'no answer'
-// 5. Repeat process for all questions and reset timer
-// 6. At end of questions show total correct, incorrect, unanswered
